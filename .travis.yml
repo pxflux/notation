@@ -2,13 +2,6 @@ language: node_js
 node_js:
   - "node"
 
-branches:
-  only:
-    - master
-
-before_script:
-  - npm i --silent
-
 script:
   - npm run lint
 
@@ -19,6 +12,5 @@ cache: npm
 
 notifications:
   email:
-    # Only send notifications when travis status changes
     on_failure: change
     on_success: change
