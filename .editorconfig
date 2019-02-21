@@ -1,0 +1,18 @@
+# Shared editor configurations that track the way prettier formats source.
+
+root = true
+
+# Source files look unixy by default
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+# Javascript and Typescript look like Google-style
+[*.{js,json,ts}]
+indent_style = space
+indent_size = 2
+
+# editorconfig-tools is unable to ignore longs strings or urls
+max_line_length = 500
