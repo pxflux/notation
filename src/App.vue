@@ -1,10 +1,20 @@
 <template>
+  <div id="app">
+    <p>{{ name }}</p>
+  </div>
 </template>
 
 <script lang="ts">
 import {Component, Vue} from 'vue-property-decorator';
+import gcloud from './gcloud';
 
-@Component({})
+@Component({
+    computed: {
+        name(): string {
+            return gcloud.app.name
+        }
+    }
+})
 export default class App extends Vue {
 }
 </script>
