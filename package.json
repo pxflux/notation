@@ -1,11 +1,13 @@
 {
   "name": "px-notation-web",
   "scripts": {
+    "config": "env-cmd .env scripty",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "firebase": "^5.8.3",
     "vue": "^2.6.6",
     "vue-class-component": "^6.0.0",
     "vue-property-decorator": "^7.0.0"
@@ -14,7 +16,9 @@
     "@vue/cli": "^3.4.1",
     "@vue/cli-plugin-typescript": "^3.4.0",
     "@vue/cli-service": "^3.4.0",
+    "env-cmd": "^8.0.2",
     "firebase-tools": "^6.3.1",
+    "scripty": "^1.9.1",
     "typescript": "^3.0.0",
     "vue-template-compiler": "^2.5.21"
   },
