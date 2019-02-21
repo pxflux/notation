@@ -2,6 +2,8 @@
   "name": "px-notation-web",
   "scripts": {
     "config": "env-cmd .env scripty",
+    "preserve": "npm run config",
+    "prebuild": "npm run config",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"

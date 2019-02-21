@@ -2,13 +2,11 @@ language: node_js
 node_js:
   - "node"
 
-before_install:
-  - npx firebase use $FIREBASE_PROJECT_ID
-
 script:
   - npm run lint
 
 after_success:
+  - npx firebase use $FIREBASE_PROJECT_ID
   - test $TRAVIS_BRANCH = "master" && test $TRAVIS_PULL_REQUEST = "false" && firebase deploy --token $FIREBASE_TOKEN --non-interactive
 
 cache: npm
