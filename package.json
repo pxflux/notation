@@ -19,12 +19,10 @@
     "lib"
   ],
   "scripts": {
-    "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
     "lint": "tslint -p tsconfig.json",
     "prebuild": "rimraf ./lib",
     "build": "tsc",
     "prepare": "npm run build",
-    "version": "git add -A src",
     "postversion": "git push && git push --tags"
   },
   "devDependencies": {
@@ -32,7 +30,7 @@
     "prettier": "^1.19.1",
     "rimraf": "^3.0.1",
     "tslint": "^6.0.0",
-    "tslint-config-prettier": "^1.18.0",
+    "tslint-config-standard": "^9.0.0",
     "typescript": "^3.7.5"
   }
 }

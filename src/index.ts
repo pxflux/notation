@@ -1,5 +1,2 @@
-export class Artwork {
-
-  constructor(public readonly key: string) {
-  }
-}
+import { Artwork } from './types/Artwork'
+export const PxArtwork = Artwork;
