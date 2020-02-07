@@ -1,7 +1,6 @@
 import { ArrayOfType } from '../../../utilites/ArrayOfType'
 import { ImageInfo } from '../../basic/ImageInfo'
 import { FileInfo } from '../../basic/FileInfo'
-import { ContributorList } from '../../ContributorList'
 
 export class AWSource {
   [key: string]: any
