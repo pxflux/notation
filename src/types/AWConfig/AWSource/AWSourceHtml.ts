@@ -1,9 +1,8 @@
-import { ArrayOfType } from '../../../utilites/ArrayOfType'
 import { AWSource } from './AWSource'
 import { SourceDependencyInfo } from './SourceDependencyInfo'
+import { castToArrayOfType } from '../../../utilites/cast'
 
 export class AWSourceHtml extends AWSource {
-  [key: string]: any
 
   dependencies: string[] = []
 
@@ -11,11 +10,8 @@ export class AWSourceHtml extends AWSource {
     super('html')
   }
 
-  static from (object: { [p: string]: any }): AWSourceHtml {
-    const sr = new AWSourceHtml()
-    if (object.hasOwnProperty('dependencies')) {
-      sr.dependencies = ArrayOfType.from(object.dependencies, SourceDependencyInfo)
-    }
-    return Object.assign(sr, AWSource.from(object))
+  static propFactory = {
+    ...AWSource.propFactory,
+    dependencies: (object: any) => castToArrayOfType(object, SourceDependencyInfo)
   }
 }

@@ -1,8 +1,8 @@
 import { AWSource } from './AWSource'
 import { Resolution } from '../../basic/Resolution'
+import { castToType } from '../../../utilites/cast'
 
 export class AWSourceVisual extends AWSource {
-  [key: string]: any
 
   resolution: Resolution | null = null
   pixelAspectRatio: number | null = null
@@ -13,16 +13,8 @@ export class AWSourceVisual extends AWSource {
     super(type)
   }
 
-  static from (object: { [p: string]: any }): AWSourceVisual {
-    const o = new AWSourceVisual()
-    Object.keys(o).forEach(key => {
-      if (!object.hasOwnProperty(key)) return
-      if (key === 'resolution') {
-        o.resolution = Resolution.from(object.resolution)
-      } else {
-        o[key] = object[key]
-      }
-    })
-    return Object.assign(o, AWSource.from(object))
+  static propFactory = {
+    ...AWSource.propFactory,
+    resolution: (object: any) => castToType(object, Resolution)
   }
 }

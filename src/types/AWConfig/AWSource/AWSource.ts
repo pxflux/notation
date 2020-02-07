@@ -1,9 +1,8 @@
-import { ArrayOfType } from '../../../utilites/ArrayOfType'
 import { ImageInfo } from '../../basic/ImageInfo'
 import { FileInfo } from '../../basic/FileInfo'
+import { castToArrayOfType, castToType } from '../../../utilites/cast'
 
 export class AWSource {
-  [key: string]: any
 
   url = ''
   type = ''
@@ -19,21 +18,8 @@ export class AWSource {
     if (type) this.type = type
   }
 
-  static from (object: {[key: string]: any}) {
-    const source = new AWSource()
-    Object.keys(source).forEach(key => {
-      if (!object.hasOwnProperty(key)) return
-      switch (key) {
-        case 'files':
-          source.files = ArrayOfType.from(object.files, FileInfo)
-          break
-        case 'thumbnail':
-          source.thumbnail = ImageInfo.from(object.thumbnail)
-          break
-        default:
-          source[key] = object[key]
-      }
-    })
-    return source
+  static propFactory = {
+    files: (object: any) => castToArrayOfType(object, FileInfo),
+    thumbnail: (object: any) => castToType(object, ImageInfo)
   }
 }

@@ -1,25 +1,25 @@
 import { Resolution } from './Resolution'
+import { castToType } from '../../utilites/cast'
 
 export class ImageInfo {
+
   url = ''
   type = ''
   resolution: Resolution | null = null
   file?: File
 
-  constructor (file?: File, url?: string, resolution?: Resolution) {
-    if (file) {
-      this.type = file.type
-      this.file = file
-    }
-    if (url) this.url = url
-    if (resolution) this.resolution = resolution
+  static propFactory = {
+    resolution: (object: any) => castToType(object, Resolution)
   }
 
-  static from (object: {[key: string]: any}): ImageInfo {
+  static fromFile (file: File, url?: string, resolution?: Resolution): ImageInfo {
     const im = new ImageInfo()
-    im.url = object.url || ''
-    im.type = object.type || ''
-    im.resolution = Resolution.from(object.resolution)
+    im.type = file.type
+    im.file = file
+    if (url) im.url = url
+    if (resolution) {
+      im.resolution = ImageInfo.propFactory.resolution(resolution)
+    }
     return im
   }
 }

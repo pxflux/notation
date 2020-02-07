@@ -1,8 +1,31 @@
 import { AWSourceVideo } from './AWSourceVideo'
-import { ImageInfo } from '../../basic/ImageInfo'
-import { Resolution } from '../../basic/Resolution'
+import { castToType } from '../../../utilites/cast'
 
-export interface VimeoData {
+export class AWSourceVimeo extends AWSourceVideo {
+  constructor () {
+    super('vimeo')
+  }
+
+  static propFactory = {
+    ...AWSourceVideo.propFactory
+  }
+
+  static fromVimeoEmbed (url: string, vimeo: VimeoEmbedData): AWSourceVimeo {
+    const obj = {
+      url,
+      type: 'vimeo',
+      duration: vimeo.duration,
+      resolution: { w: vimeo.width, h: vimeo.height },
+      thumbnail: {
+        url: vimeo.thumbnail_url,
+        resolution: { w: vimeo.thumbnail_width, h: vimeo.thumbnail_height }
+      }
+    }
+    return castToType(obj, AWSourceVimeo)
+  }
+}
+
+export interface VimeoEmbedData {
   account_type: string
   author_name: string
   author_url: string
@@ -18,34 +41,3 @@ export interface VimeoData {
   width: number
 }
 
-export class AWSourceVimeo extends AWSourceVideo {
-  constructor () {
-    super('vimeo')
-  }
-
-  static from (object: { [p: string]: any }): AWSourceVimeo {
-    const o = new AWSourceVimeo()
-    if (object.hasOwnProperty('vimeoPlus')) {
-      o.vimeoPlus = object.vimeoPlus
-    }
-    return Object.assign(o, AWSourceVideo.from(object))
-  }
-
-  static fromVimeo (url: string, vimeo: VimeoData): AWSourceVimeo {
-    const obj = {
-      url,
-      type: 'vimeo',
-      duration: vimeo.duration,
-      resolution: new Resolution(vimeo.width, vimeo.height),
-      thumbnail: new ImageInfo(
-        undefined,
-        vimeo.thumbnail_url,
-        new Resolution(
-          vimeo.thumbnail_width,
-          vimeo.thumbnail_height
-        )
-      )
-    }
-    return AWSourceVimeo.from(obj)
-  }
-}

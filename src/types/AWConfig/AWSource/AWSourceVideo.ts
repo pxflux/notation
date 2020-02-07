@@ -1,22 +1,18 @@
 import { AWSourceVisual } from './AWSourceVisual'
 
 export class AWSourceVideo extends AWSourceVisual {
+
   loop = true
-  dataRate: number | null = null
-  codec: string | null = null
-  audioTracksCount: number | null = null
-  videoTracksCount = 1
+  dataRate = 0
+  codec = ''
+  audioTracksCount = 0
+  videoTracksCount = 0
 
   constructor (type?: string) {
     super(type || 'video')
   }
 
-  static from (object: { [p: string]: any }): AWSourceVideo {
-    const o = new AWSourceVideo()
-    Object.keys(o).forEach(key => {
-      if (!object.hasOwnProperty(key)) return
-      o[key] = object[key]
-    })
-    return Object.assign(o, AWSourceVisual.from(object))
+  static propFactory = {
+    ...AWSourceVisual.propFactory
   }
 }

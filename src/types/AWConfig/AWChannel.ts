@@ -4,9 +4,9 @@ import { AWSourceVisual } from './AWSource/AWSourceVisual'
 import { AWSourceAudio } from './AWSource/AWSourceAudio'
 import { AWSourceVideo } from './AWSource/AWSourceVideo'
 import { AWSourceVimeo } from './AWSource/AWSourceVimeo'
+import { castToType } from '../../utilites/cast'
 
 export class AWChannel {
-  [key: string]: any
 
   id = ''
   source: AWSource | null = null
@@ -21,34 +21,27 @@ export class AWChannel {
     if (id) this.id = id
   }
 
-  static from (object: { [p: string]: any }): AWChannel {
-    const o = new AWChannel()
-    Object.keys(o).forEach(key => {
-      if (!object.hasOwnProperty(key)) return
-      switch (key) {
-        case 'source':
-          o.source = getSourceByType(object)
-          break
-        case 'outputs':
-          o.outputs.audio = null
-          o.outputs.video = null
-          break
-        default:
-          o[key] = object[key]
+  static propFactory = {
+    source: (object: any) => getSourceByType(object),
+    outputs: (object: any) => {
+      // TODO: make real outputs
+      return {
+        audio: null,
+        video: null
       }
-    })
-    return o
+    },
+    setup: (object: any) => null
   }
 }
 
 function getSourceByType (object: { [p: string]: any }):
   AWSource | AWSourceHtml | AWSourceVideo | AWSourceVimeo | AWSourceVisual | AWSourceAudio {
   switch (object.type) {
-    case 'html': return AWSourceHtml.from(object)
-    case 'video': return AWSourceVideo.from(object)
-    case 'vimeo': return AWSourceVimeo.from(object)
-    case 'image': return AWSourceVisual.from(object)
-    case 'audio': return AWSourceAudio.from(object)
-    default: return AWSource.from(object)
+    case 'html': return castToType(object, AWSourceHtml)
+    case 'video': return castToType(object, AWSourceVideo)
+    case 'vimeo': return castToType(object, AWSourceVimeo)
+    case 'image': return castToType(object, AWSourceVisual)
+    case 'audio': return castToType(object, AWSourceAudio)
+    default: return castToType(object, AWSource)
   }
 }
