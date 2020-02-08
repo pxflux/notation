@@ -1,4 +1,6 @@
-### px:Notation
+<img src="https://user-images.githubusercontent.com/32540212/74092352-cce6a580-4ac2-11ea-86f8-160c556a17e9.png" width="100">
+
+# px:Notation
 
 **px:Notation** system is a specific data structure and a set of tools that allow deep & comprehensive description of digital & time based artworks.
  
@@ -9,4 +11,3 @@
 **px:Notation** is inspired by Richard Rinehart's Media Art Notation System and Variable Media Initiative and the Media Art Documentation Iteration Report of the Guggenheim Museum.
 
 *This is a part of [px:flux](https://pxflux.net) project* 
-
