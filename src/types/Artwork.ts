@@ -1,3 +1,4 @@
+import { simpleId } from '../utilites/simpleId'
 import { castToArrayOfType } from '../utilites/cast'
 import { Contributor } from './Contributor'
 import { AWConfiguration } from './AWConfig/AWConfiguration'
@@ -10,7 +11,7 @@ export class Artwork {
   credits: Contributor[] = []
   year = 0
   description = ''
-  configurations: AWConfiguration[] = []
+  configurations = new AWConfiguration(simpleId())
   controls = []
   stats = null
 

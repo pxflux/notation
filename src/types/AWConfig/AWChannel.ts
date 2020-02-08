@@ -1,10 +1,10 @@
+import { castToType } from '../../utilites/cast'
 import { AWSource } from './AWSource/AWSource'
 import { AWSourceHtml } from './AWSource/AWSourceHtml'
 import { AWSourceVisual } from './AWSource/AWSourceVisual'
 import { AWSourceAudio } from './AWSource/AWSourceAudio'
 import { AWSourceVideo } from './AWSource/AWSourceVideo'
 import { AWSourceVimeo } from './AWSource/AWSourceVimeo'
-import { castToType } from '../../utilites/cast'
 
 export class AWChannel {
 
@@ -30,6 +30,7 @@ export class AWChannel {
         video: null
       }
     },
+    // TODO: make real setup
     setup: (object: any) => null
   }
 }

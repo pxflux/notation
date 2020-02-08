@@ -1,6 +1,6 @@
+import { castToArrayOfType, castToType } from '../../../utilites/cast'
 import { ImageInfo } from '../../basic/ImageInfo'
 import { FileInfo } from '../../basic/FileInfo'
-import { castToArrayOfType, castToType } from '../../../utilites/cast'
 
 export class AWSource {
 

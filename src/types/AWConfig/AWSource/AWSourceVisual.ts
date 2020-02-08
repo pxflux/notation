@@ -1,6 +1,6 @@
+import { castToType } from '../../../utilites/cast'
 import { AWSource } from './AWSource'
 import { Resolution } from '../../basic/Resolution'
-import { castToType } from '../../../utilites/cast'
 
 export class AWSourceVisual extends AWSource {
 

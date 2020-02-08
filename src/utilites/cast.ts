@@ -1,13 +1,3 @@
-export function castToArrayOfType <T> (object: { [p: string]: any } | any[], Type: new () => T): T[] {
-  if (Array.isArray(object)) {
-    return object.map(item => castToType(item, Type))
-  }
-  if (typeof object === 'object' && object !== null) {
-    return Object.keys(object).map(key => castToType({ ...object[key], _key: key }, Type))
-  }
-  return []
-}
-
 export function castToType <T> (object: { [key: string]: any }, Type: new () => T): T {
   const instance = new Type() as any
   Object.keys(instance).forEach(prop => {
@@ -40,6 +30,16 @@ export function castToType <T> (object: { [key: string]: any }, Type: new () => 
     }
   })
   return instance as T
+}
+
+export function castToArrayOfType <T> (object: { [p: string]: any } | any[], Type: new () => T): T[] {
+  if (Array.isArray(object)) {
+    return object.map(item => castToType(item, Type))
+  }
+  if (typeof object === 'object' && object !== null) {
+    return Object.keys(object).map(key => castToType({ ...object[key], _key: key }, Type))
+  }
+  return []
 }
 
 function parseBoolean (value: any): boolean | void {

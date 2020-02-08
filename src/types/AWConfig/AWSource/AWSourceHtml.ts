@@ -1,6 +1,6 @@
-import { AWSource } from './AWSource'
-import { SourceDependencyInfo } from './SourceDependencyInfo'
 import { castToArrayOfType } from '../../../utilites/cast'
+import { AWSource } from './AWSource'
+import { SourceDependencyInfo } from '../../basic/SourceDependencyInfo'
 
 export class AWSourceHtml extends AWSource {
 

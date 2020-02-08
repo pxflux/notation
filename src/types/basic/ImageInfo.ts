@@ -1,5 +1,5 @@
-import { Resolution } from './Resolution'
 import { castToType } from '../../utilites/cast'
+import { Resolution } from './Resolution'
 
 export class ImageInfo {
 

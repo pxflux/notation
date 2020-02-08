@@ -1,6 +1,6 @@
 export class Contributor {
 
   profileId = ''
-  fullName = ''
+  displayName = ''
   role = ''
 }

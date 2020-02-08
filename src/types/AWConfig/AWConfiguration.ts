@@ -1,6 +1,6 @@
-import { AWChannel } from './AWChannel'
+import { simpleId } from '../../utilites/simpleId'
 import { castToArrayOfType } from '../../utilites/cast'
-import simpleId from '../../utilites/simpleId'
+import { AWChannel } from './AWChannel'
 
 export class AWConfiguration {
 
