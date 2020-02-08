@@ -3,9 +3,9 @@ import { AWSource } from './AWSource'
 export class AWSourceAudio extends AWSource {
 
   loop = true
-  dataRate: number | null = null
-  codec: string | null = null
-  audioTracksCount: number | null = null
+  dataRate = 0
+  codec = ''
+  audioTracksCount = 0
 
   constructor () {
     super('audio')

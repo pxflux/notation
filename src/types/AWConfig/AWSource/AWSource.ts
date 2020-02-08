@@ -10,8 +10,8 @@ export class AWSource {
   local = false
   files: FileInfo[] = []
   size = 0
-  duration: number | null = null
-  fps: number | null = null
+  duration = 0
+  fps = 0
   thumbnail: ImageInfo | null = null
 
   constructor (type?: string) {

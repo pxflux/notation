@@ -5,9 +5,9 @@ import { castToType } from '../../../utilites/cast'
 export class AWSourceVisual extends AWSource {
 
   resolution: Resolution | null = null
-  pixelAspectRatio: number | null = null
-  colorDepth: number | null = null
-  colorProfile: string | null = null
+  pixelAspectRatio = 0
+  colorDepth = 0
+  colorProfile = ''
 
   constructor (type?: string) {
     super(type)
