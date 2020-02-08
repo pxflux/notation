@@ -40,4 +40,3 @@ export interface VimeoEmbedData {
   video_id: number
   width: number
 }
-

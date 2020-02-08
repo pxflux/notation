@@ -1,7 +1,7 @@
 {
   "name": "@pxflux/px-notation",
   "version": "1.0.0",
-  "description": "PxFlux notation system",
+  "description": "pxflux Notation System",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/pxflux/px-notation.git"
