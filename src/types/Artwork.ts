@@ -11,7 +11,7 @@ export class Artwork {
   credits: Contributor[] = []
   year = 0
   description = ''
-  configurations = new AWConfiguration(simpleId())
+  configurations = [new AWConfiguration(simpleId())]
   controls = []
   stats = null
 

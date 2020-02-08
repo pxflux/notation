@@ -6,17 +6,14 @@ export class AWConfiguration {
 
   id = ''
   title = ''
-  channels: AWChannel[] = []
+  channels = [new AWChannel(simpleId())]
   preview = []
   iterations = []
-  setup: null // description of elements physical sizes, placement in space, etc.
+  setup = null // description of elements physical sizes, placement in space, etc.
   order = 0   // sort order in UI
 
   constructor (id?: string) {
-    if (id) {
-      this.id = id
-      this.channels = [new AWChannel(simpleId())]
-    }
+    if (id) this.id = id
   }
 
   static propFactory = {
