@@ -11,3 +11,5 @@
 **px:Notation** is inspired by Richard Rinehart's Media Art Notation System and Variable Media Initiative and the Media Art Documentation Iteration Report of the Guggenheim Museum.
 
 *This is a part of [px:flux](https://pxflux.net) project*
+
+***
