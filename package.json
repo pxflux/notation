@@ -1,12 +1,17 @@
 {
   "name": "@pxflux/px-notation",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "pxNotation System is a specific data structure and a set of tools that allow deep & comprehensive description of digital & time based artworks",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/pxflux/px-notation.git"
   },
-  "keywords": ["artwork", "metadata", "notation system", "digital art preservation"],
+  "keywords": [
+    "artwork",
+    "metadata",
+    "notation system",
+    "digital art preservation"
+  ],
   "author": "",
   "license": "ISC",
   "bugs": {
