@@ -6,7 +6,12 @@
     "type": "git",
     "url": "git+https://github.com/pxflux/px-notation.git"
   },
-  "keywords": ["artwork", "metadata", "notation system", "digital art preservation"],
+  "keywords": [
+    "artwork",
+    "metadata",
+    "notation system",
+    "digital art preservation"
+  ],
   "author": "",
   "license": "ISC",
   "bugs": {
