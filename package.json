@@ -28,9 +28,8 @@
     "prebuild": "rimraf ./lib",
     "build": "tsc",
     "prepare": "npm run build",
-    "version": "npm version patch",
     "postversion": "git push && git push --tags",
-    "publish": "npm publish"
+    "deploy:patch": "npm version patch && npm publish"
   },
   "devDependencies": {
     "eslint-config-prettier": "^6.10.0",
