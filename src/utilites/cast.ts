@@ -1,5 +1,6 @@
 export function castToType <T> (object: { [key: string]: any }, Type: new () => T): T {
   const instance = new Type() as any
+  if (!object || typeof object !== 'object') return instance
   Object.keys(instance).forEach(prop => {
     if (!object.hasOwnProperty(prop)) return
     const newVal = object[prop]

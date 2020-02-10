@@ -34,7 +34,7 @@ export class AWChannel {
   }
 
   static propFactory = {
-    source: (object: any) => getSourceByType(object),
+    source: (object: any) => AWSource.from(object),
     outputs: (object: any) => {
       // TODO: make real outputs
       return {
@@ -44,17 +44,5 @@ export class AWChannel {
     },
     // TODO: make real setup
     setup: (object: any) => null
-  }
-}
-
-function getSourceByType (object: { type: string }):
-  AWSource | AWSourceHtml | AWSourceVideo | AWSourceVimeo | AWSourceVisual | AWSourceAudio {
-  switch (object.type) {
-    case 'html': return castToType(object, AWSourceHtml)
-    case 'video': return castToType(object, AWSourceVideo)
-    case 'vimeo': return castToType(object, AWSourceVimeo)
-    case 'image': return castToType(object, AWSourceVisual)
-    case 'audio': return castToType(object, AWSourceAudio)
-    default: return castToType(object, AWSource)
   }
 }
