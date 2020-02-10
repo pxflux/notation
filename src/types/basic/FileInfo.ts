@@ -14,14 +14,10 @@ export class FileInfo {
     if (object instanceof File) {
       return FileInfo.fromFile(object)
     } else if (object.file && object.file instanceof File) {
-      const o = {
+      return castToType({
         ...object,
-        name: object.file.name || '',
-        type: object.file.type || '',
-        size: object.file.size || 0,
-        lastModified: object.file.lastModified || 0
-      }
-      return castToType(o, FileInfo) // this will also check types of 'url' & 'path'
+        ...FileInfo.fromFile(object.file)
+      }, FileInfo)
     } else {
       return castToType(object, FileInfo)
     }
@@ -35,5 +31,9 @@ export class FileInfo {
     o.lastModified = file.lastModified || 0
     o.file = file
     return o
+  }
+
+  static propFactory = {
+    file: (file: File | any) => { if (file instanceof File) return file }
   }
 }
