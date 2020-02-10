@@ -11,6 +11,7 @@ import { Contributor } from './types/Contributor'
 import { FileInfo } from './types/basic/FileInfo'
 import { ImageInfo } from './types/basic/ImageInfo'
 import { SourceDependencyInfo } from './types/basic/SourceDependencyInfo'
+import { sourceByType } from './utilites/source-by-type'
 
 export const PxArtwork = Artwork
 export const PxAWConfiguration = AWConfiguration
@@ -25,3 +26,4 @@ export const PxContributor = Contributor
 export const PxFileInfo = FileInfo
 export const PxImageInfo = ImageInfo
 export const PxSourceDependencyInfo = SourceDependencyInfo
+export const PxSourceByType = sourceByType

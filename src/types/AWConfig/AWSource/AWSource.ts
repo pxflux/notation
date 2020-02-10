@@ -1,11 +1,6 @@
-import { castToArrayOfType, castToType } from '../../../utilites/cast'
+import { castToType } from '../../../utilites/cast'
 import { ImageInfo } from '../../basic/ImageInfo'
 import { FileInfo } from '../../basic/FileInfo'
-import { AWSourceHtml } from './AWSourceHtml'
-import { AWSourceVideo } from './AWSourceVideo'
-import { AWSourceVimeo } from './AWSourceVimeo'
-import { AWSourceVisual } from './AWSourceVisual'
-import { AWSourceAudio } from './AWSourceAudio'
 
 export class AWSource {
 
@@ -21,17 +16,6 @@ export class AWSource {
 
   constructor (type?: string) {
     if (type) this.type = type
-  }
-
-  static from (object: {[p: string]: any}): AWSource {
-    switch (object.type) {
-      case 'html': return castToType(object, AWSourceHtml)
-      case 'video': return castToType(object, AWSourceVideo)
-      case 'vimeo': return castToType(object, AWSourceVimeo)
-      case 'image': return castToType(object, AWSourceVisual)
-      case 'audio': return castToType(object, AWSourceAudio)
-      default: return castToType(object, AWSource)
-    }
   }
 
   static propFactory = {

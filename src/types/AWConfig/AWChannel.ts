@@ -1,11 +1,7 @@
 import { simpleId } from '../../utilites/simpleId'
 import { castToType } from '../../utilites/cast'
+import { sourceByType } from '../../utilites/source-by-type'
 import { AWSource } from './AWSource/AWSource'
-import { AWSourceHtml } from './AWSource/AWSourceHtml'
-import { AWSourceVisual } from './AWSource/AWSourceVisual'
-import { AWSourceAudio } from './AWSource/AWSourceAudio'
-import { AWSourceVideo } from './AWSource/AWSourceVideo'
-import { AWSourceVimeo } from './AWSource/AWSourceVimeo'
 
 export class AWChannel {
 
@@ -34,7 +30,7 @@ export class AWChannel {
   }
 
   static propFactory = {
-    source: (object: any) => AWSource.from(object),
+    source: (object: any) => sourceByType(object),
     outputs: (object: any) => {
       // TODO: make real outputs
       return {
