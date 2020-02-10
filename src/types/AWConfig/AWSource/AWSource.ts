@@ -35,7 +35,12 @@ export class AWSource {
   }
 
   static propFactory = {
-    files: (object: any) => castToArrayOfType(object, FileInfo),
+    files: (object: any) => {
+      if (typeof object === 'object' && object !== null) {
+        const a = Array.isArray(object) ? object : Object.values(object)
+        return a.map(item => FileInfo.from(item))
+      }
+    },
     thumbnail: (object: any) => castToType(object, ImageInfo)
   }
 }

@@ -1,3 +1,5 @@
+import { FileInfo } from '../types/basic/FileInfo'
+
 export function castToType <T> (object: { [key: string]: any }, Type: new () => T): T {
   const instance = new Type() as any
   if (!object || typeof object !== 'object') return instance
@@ -34,11 +36,9 @@ export function castToType <T> (object: { [key: string]: any }, Type: new () => 
 }
 
 export function castToArrayOfType <T> (object: { [p: string]: any } | any[], Type: new () => T): T[] {
-  if (Array.isArray(object)) {
-    return object.map(item => castToType(item, Type))
-  }
   if (typeof object === 'object' && object !== null) {
-    return Object.keys(object).map(key => castToType({ ...object[key], _key: key }, Type))
+    const a = Array.isArray(object) ? object : Object.values(object)
+    return a.map(item => castToType(item, Type))
   }
   return []
 }
