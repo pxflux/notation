@@ -8,6 +8,9 @@ import { AWSourceVimeo } from './types/AWConfig/AWSource/AWSourceVimeo'
 import { AWSourceVisual } from './types/AWConfig/AWSource/AWSourceVisual'
 import { AWSource } from './types/AWConfig/AWSource/AWSource'
 import { Contributor } from './types/Contributor'
+import { FileInfo } from './types/basic/FileInfo'
+import { ImageInfo } from './types/basic/ImageInfo'
+import { SourceDependencyInfo } from './types/basic/SourceDependencyInfo'
 
 export const PxArtwork = Artwork
 export const PxAWConfiguration = AWConfiguration
@@ -19,3 +22,6 @@ export const PxAWSourceVimeo = AWSourceVimeo
 export const PxAWSourceVisual = AWSourceVisual
 export const PxAWSource = AWSource
 export const PxContributor = Contributor
+export const PxFileInfo = FileInfo
+export const PxImageInfo = ImageInfo
+export const PxSourceDependencyInfo = SourceDependencyInfo
