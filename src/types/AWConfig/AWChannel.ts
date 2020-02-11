@@ -1,15 +1,17 @@
 import { simpleId } from '../../utilites/simpleId'
-import { castToType } from '../../utilites/cast'
+import { castToArrayOfType, castToType } from '../../utilites/cast'
 import { sourceByType } from '../../utilites/source-by-type'
 import { AWSource } from './AWSource/AWSource'
+import { AWOutputVideo } from './AWOutputs/AWOutputVideo'
+import { AWOutputAudio } from './AWOutputs/AWOutputAudio'
 
 export class AWChannel {
 
   id = ''
   source: AWSource | null = null
-  outputs = {
-    audio: null,
-    video: null
+  outputs: {audio: AWOutputAudio[], video: AWOutputVideo[]} = {
+    audio: [],
+    video: []
   }
   setup: null // description of physical sizes, placement in space, etc.
   order = 0   // sort order in UI
@@ -32,10 +34,9 @@ export class AWChannel {
   static propFactory = {
     source: (object: any) => sourceByType(object),
     outputs: (object: any) => {
-      // TODO: make real outputs
       return {
-        audio: null,
-        video: null
+        audio: object.audio ? castToArrayOfType(object.audio, AWOutputAudio) : [],
+        video: object.video ? castToArrayOfType(object.video, AWOutputVideo) : []
       }
     },
     // TODO: make real setup
