@@ -12,6 +12,8 @@ import { AWOutputAudio, audioOutputType } from './types/AWConfig/AWOutputs/AWOut
 import { Contributor } from './types/Contributor'
 import { FileInfo } from './types/basic/FileInfo'
 import { ImageInfo } from './types/basic/ImageInfo'
+import { VideoInfo } from './types/basic/VideoInfo'
+import { Resolution } from './types/basic/Resolution'
 import { SourceDependencyInfo } from './types/basic/SourceDependencyInfo'
 import { sourceByType } from './utilites/source-by-type'
 
@@ -34,3 +36,5 @@ export const PxAWOutputAudio = AWOutputAudio
 export const pxVideoOutputOrientation = videoOutputOrientation
 export const pxVideoOutputType = videoOutputType
 export const pxAudioOutputType = audioOutputType
+export const PxVideoInfo = VideoInfo
+export const PxResolution = Resolution
